@@ -162,6 +162,11 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .el-main {
+    width: 960px;
+    margin: 0 auto;
+  }
   i.def {
     display: inline-block;
     background-color: black;

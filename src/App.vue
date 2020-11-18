@@ -72,13 +72,39 @@
           </li>
         </ul>
       </div>
-      <div id="interaction">
+      <div id="interaction" class="flex">
         <div class="photoes">
           <el-carousel>
             <el-carousel-item v-for="item in imgs" :key="item">
               <img :src="item" alt="">
             </el-carousel-item>
           </el-carousel>
+        </div>
+        <div class="guestbook">
+          <p>留言板</p>
+          <div class='img-content'>
+            <div class="odd flex">
+              <div class="img-name">
+                <!-- <div class="img"></div> -->
+                <img src="/imgs/avatar.jpg" alt="">
+                <p class="name">Simon</p>
+              </div>
+              <div class="content"></div>
+            </div>
+            <div class="even flex">
+              <div class="img-name">
+                <!-- <div class="img"></div> -->
+                <img src="/imgs/avatar.jpg" alt="">
+                <p class="name">Simon</p>
+              </div>
+              <div class="content"></div>
+            </div>
+          </div>
+          <el-form>
+            <el-input type="text" name="message" placeholder="input your message" id="message"></el-input>
+            <el-input type="text" name="name" placeholder="input your name" id="guestname"></el-input>
+            <el-button >Submit</el-button>
+          </el-form>          
         </div>
       </div>
     </el-main>
@@ -352,12 +378,75 @@ export default {
   #project a:hover {
     font-weight:bold;
   }
+
+  #interaction {
+    height: 370px;
+  }
   .photoes {
+    height: 100%;
     width: 630px;
+    display: inline-block;
+  }
+  .photoes div {
+    height: 100%;
   }
   .photoes img {
     height: 100%;
     width: 100%;
+  }
+  .guestbook {
+    display: inline-block;
+    height: 100%;
+    flex: 1;
+  }
+  .guestbook p {
+    text-align: center;
+    margin-top: 0;
+  }
+  .guestbook .img-content{
+    box-sizing: border-box;
+    width: 300px;
+    height: 250px;
+    margin: 5px auto;
+    border: 2px dotted;
+    overflow: auto;
+  }
+  .guestbook .img-content > div {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 5px;
+  }
+  .guestbook .img-content .img-name {
+    height: 100%;
+    width: 50px;
+    margin-left: 5px;
+  }
+  .guestbook .img-content .even .content {
+    order: -1;
+  }
+  .guestbook img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid gray;
+    border-radius: 50px;
+    position: relative;
+    top: 10px;
+    // background: url(./imgs/avatar.jpg);
+    // background-size: 100% 100%;
+  }
+  .guestbook .name {
+    position: relative;
+    top: 10px;
+    text-align: center;
+  }
+  .guestbook .content {
+    height: 100%;
+    box-sizing: border-box;
+    width: 220px;
+    border: 1px solid;
+    padding: 4px;
+    overflow: auto;
   }
 
   .el-footer {
@@ -366,5 +455,5 @@ export default {
     line-height: 60px;
     font-size: 35px;
     font-family: STKaiti;
-}
+  }
 </style>

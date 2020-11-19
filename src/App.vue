@@ -7,7 +7,7 @@
           <a href="#intro">个人介绍</a><i class="def"></i>
           <a href="#project">项目介绍</a><i class="def"></i>
           <a href="#interaction">给我留言</a>
-          <div class="img"></div>
+          <img src="/imgs/照片wy.jpg" alt="">
         </div>
       </div>
     </el-header>
@@ -83,27 +83,27 @@
         <div class="guestbook">
           <p>留言板</p>
           <div class='img-content'>
-            <div class="odd flex">
+            <div class="flex" v-for="item in interaction" :key="item[0]">
               <div class="img-name">
-                <!-- <div class="img"></div> -->
+                <img src="/imgs/avatar.jpg" alt="">
+                <p class="name">{{item.name}}</p>
+              </div>
+              <div class="content">{{item.message}}</div>
+            </div>
+            <!-- <div class="even flex">
+              <div class="img-name">
                 <img src="/imgs/avatar.jpg" alt="">
                 <p class="name">Simon</p>
               </div>
               <div class="content"></div>
-            </div>
-            <div class="even flex">
-              <div class="img-name">
-                <!-- <div class="img"></div> -->
-                <img src="/imgs/avatar.jpg" alt="">
-                <p class="name">Simon</p>
-              </div>
-              <div class="content"></div>
-            </div>
+            </div> -->
           </div>
           <el-form>
-            <el-input type="text" name="message" placeholder="input your message" id="message"></el-input>
-            <el-input type="text" name="name" placeholder="input your name" id="guestname"></el-input>
-            <el-button >Submit</el-button>
+            <el-input class="message" type="text" placeholder="input your message" v-model="input_message" clearable></el-input>
+            <div class="flex">
+              <el-input class="name" type="text" placeholder="input your name" v-model="input_name" clearable></el-input>
+              <el-button @click="handle()">Submit</el-button>
+            </div>
           </el-form>          
         </div>
       </div>
@@ -201,7 +201,25 @@ export default {
           detail: "利用摄像头实时获取图像信息，捕捉司机眼部区域并计算眼部闭合度，当小于阈值时给予警报提醒。(获得浙江大学本科 生科研成果评选三等奖)",
           tec: ["OpenCV", "dlib"]
         },
-      ]
+      ],
+      input_message: "",
+      input_name: "",
+      interaction: [],
+      index: 1
+    }
+  },
+  methods: {
+    handle() {
+      const content = {
+        id: this.index,
+        name: this.input_name,
+        message: this.input_message
+      }
+      this.interaction.push(content)
+      this.input_message = ""
+      this.input_name = ""
+      this.index += 1
+      console.log(this.interaction)
     }
   }
 }
@@ -235,21 +253,21 @@ export default {
     padding: 10px 0;
     background-color: #f9fafc;
   }
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 150px;
-    margin: 0;
-  }
+  // .el-carousel__item h3 {
+  //   color: #475669;
+  //   font-size: 14px;
+  //   opacity: 0.75;
+  //   line-height: 150px;
+  //   margin: 0;
+  // }
 
-  .el-carousel__item:nth-child(2n) {
-     background-color: #99a9bf;
-  }
+  // .el-carousel__item:nth-child(2n) {
+  //    background-color: #99a9bf;
+  // }
   
-  .el-carousel__item:nth-child(2n+1) {
-     background-color: #d3dce6;
-  }
+  // .el-carousel__item:nth-child(2n+1) {
+  //    background-color: #d3dce6;
+  // }
 
   .flex {
     display: flex;
@@ -278,11 +296,9 @@ export default {
     text-decoration: none;
     font-size: 15px;
   }
-  .header .nav .img {
-    display: inline-block;
+  .header .nav img {
     height: 60px;
     width: 60px;
-    background-color: burlywood;
     border-radius: 60px;
     margin-left: 40px;
   }
@@ -401,7 +417,7 @@ export default {
   }
   .guestbook p {
     text-align: center;
-    margin-top: 0;
+    margin: 0;
   }
   .guestbook .img-content{
     box-sizing: border-box;
@@ -415,29 +431,31 @@ export default {
     width: 100%;
     height: 80px;
     margin-bottom: 5px;
+    // display: none;
   }
   .guestbook .img-content .img-name {
+    box-sizing: border-box;
     height: 100%;
-    width: 50px;
-    margin-left: 5px;
+    width: 60px;
+    margin: 0 5px;
+    text-align: center;
   }
-  .guestbook .img-content .even .content {
-    order: -1;
-  }
+  // .guestbook .img-content .even .content {
+  //   order: -1;
+  // }
   .guestbook img {
-    display: inline-block;
     width: 50px;
     height: 50px;
     border: 1px solid gray;
     border-radius: 50px;
     position: relative;
-    top: 10px;
+    top: 5px;
     // background: url(./imgs/avatar.jpg);
     // background-size: 100% 100%;
   }
   .guestbook .name {
     position: relative;
-    top: 10px;
+    top: 5px;
     text-align: center;
   }
   .guestbook .content {
@@ -447,6 +465,23 @@ export default {
     border: 1px solid;
     padding: 4px;
     overflow: auto;
+  }
+  .guestbook .el-form{
+    padding: 0 10px;
+  }
+  .guestbook  form .name {
+    // position: absolute;
+    // left: 0;
+    width: 200px;
+  }
+  .guestbook button {
+    position: relative;
+    top: 10px;
+    right: 0;
+  }
+  .guestbook .el-button :active {
+    color: #606266;
+    border-color: #DCDFE6;
   }
 
   .el-footer {

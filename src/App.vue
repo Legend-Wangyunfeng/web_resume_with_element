@@ -7,7 +7,7 @@
           <a href="#intro">个人介绍</a><i class="def"></i>
           <a href="#project">项目介绍</a><i class="def"></i>
           <a href="#interaction">给我留言</a>
-          <img src="/imgs/照片wy.jpg" alt="">
+          <img :src="require('./imgs/照片wy.jpg')" alt="">
         </div>
       </div>
     </el-header>
@@ -85,7 +85,7 @@
           <div class='img-content'>
             <div class="flex" v-for="item in interaction" :key="item[0]">
               <div class="img-name">
-                <img src="/imgs/avatar.jpg" alt="">
+                <img :src="require('./imgs/avatar.jpg')" alt="">
                 <p class="name">{{item.name}}</p>
               </div>
               <div class="content">{{item.message}}</div>
@@ -118,10 +118,10 @@ export default {
     return {
       activeName2: 'first',
       imgs: [
-        '/imgs/one.jpg',
-        '/imgs/five.jpg',
-        '/imgs/six.jpg',
-        '/imgs/seven.jpg'
+        require('./imgs/one.jpg'),
+        require('./imgs/five.jpg'),
+        require('./imgs/six.jpg'),
+        require('./imgs/seven.jpg')
       ],
       skills: [
         {tool: 'Javascript', level: 0.8},
@@ -219,7 +219,7 @@ export default {
       this.input_message = ""
       this.input_name = ""
       this.index += 1
-      console.log(this.interaction)
+      // console.log(this.interaction)
     }
   }
 }

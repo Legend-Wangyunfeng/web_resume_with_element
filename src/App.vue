@@ -108,7 +108,7 @@
         </div>
       </div>
     </el-main>
-    <el-footer>Stay hungry, stay foolish.</el-footer>
+    <el-footer>You are the one who can fill the world with sunshine.</el-footer>
   </el-container>
 </template>
 
@@ -119,6 +119,9 @@ export default {
       activeName2: 'first',
       imgs: [
         require('./imgs/one.jpg'),
+        require('./imgs/two.jpg'),
+        require('./imgs/three.jpg'),
+        require('./imgs/four.jpg'),
         require('./imgs/five.jpg'),
         require('./imgs/six.jpg'),
         require('./imgs/seven.jpg')
@@ -174,13 +177,13 @@ export default {
         {
           id: 1,
           title: "Web个人主页",
-          detail: "详见<a href='https://lengnd-wangyunfeng.github.io/web_resume/' target='_blank'>https://lengnd-wangyunfeng.github.io/web_resume/</a>",
+          detail: "详见<a href='https://legend-wangyunfeng.github.io/web_resume_vue/' target='_blank'>https://legend-wangyunfeng.github.io/web_resume_vue/</a>",
           tec: ["Vue", "Element-UI"]
         },
         {
           id: 2,
           title: "仿手机端Boss直聘网站",
-          detail: "仿Boss直聘手机官网，做了三个页面，包括主页、列表页、详情页",
+          detail: "仿Boss直聘手机官网，做了三个页面，包括主页、列表页、详情页。<br/>详见<a href='https://github.com/Legend-Wangyunfeng/boss_zhipin' target='_blank'>https://github.com/Legend-Wangyunfeng/boss_zhipin</a>",
           tec: ["Vue", "Nuxt.js"]
         },
         {
@@ -456,7 +459,6 @@ export default {
   .guestbook .name {
     position: relative;
     top: 5px;
-    text-align: center;
   }
   .guestbook .content {
     height: 100%;
@@ -464,6 +466,7 @@ export default {
     width: 220px;
     border: 1px solid;
     padding: 4px;
+    border-radius: 5px;
     overflow: auto;
   }
   .guestbook .el-form{
@@ -488,7 +491,7 @@ export default {
     background-color: slategrey;
     text-align: center;
     line-height: 60px;
-    font-size: 35px;
+    font-size: 30px;
     font-family: STKaiti;
   }
 </style>

@@ -11,7 +11,7 @@
         </div>
       </div>
     </el-header>
-    <el-main>
+    <div class="main">
       <div class="intro">
         <h2>前端工程师</h2>
         <p>电子邮件: 845203476@qq.com</p>
@@ -107,7 +107,7 @@
           </el-form>          
         </div>
       </div>
-    </el-main>
+    </div>
     <el-footer>You are the one who can fill the world with sunshine.</el-footer>
   </el-container>
 </template>
@@ -271,7 +271,9 @@ export default {
   // .el-carousel__item:nth-child(2n+1) {
   //    background-color: #d3dce6;
   // }
-
+  .el-container {
+    // width: fit-content;
+  }
   .flex {
     display: flex;
     justify-content: space-between;
@@ -298,6 +300,7 @@ export default {
   .header .nav a{
     text-decoration: none;
     font-size: 15px;
+    color: black;
   }
   .header .nav img {
     height: 60px;
@@ -312,8 +315,8 @@ export default {
     color: #000;
   }
 
-  .el-main {
-    width: 1000px;
+  .main {
+    width: 960px;
     margin: 0 auto;
     padding: 20px 0;
   }
@@ -493,5 +496,6 @@ export default {
     line-height: 60px;
     font-size: 30px;
     font-family: STKaiti;
+    width: 100%;
   }
 </style>

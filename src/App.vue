@@ -130,7 +130,9 @@ export default {
         {tool: 'Javascript', level: 0.8},
         {tool: 'CSS', level: 0.7},
         {tool: 'HTML', level: 0.9},
-        {tool: 'Vue', level: 0.75},
+        {tool: 'React', level: 0.75},
+        {tool: 'Vue', level: 0.7},
+        {tool: 'Node.js', level: 0.75},
         {tool: 'Python', level: 0.85}
       ],
       education: [
@@ -175,31 +177,31 @@ export default {
       ],
       projects: [
         {
-          id: 1,
-          title: "Web个人主页",
-          detail: "详见<a href='https://legend-wangyunfeng.github.io/web_resume_vue/' target='_blank'>https://legend-wangyunfeng.github.io/web_resume_vue/</a>",
-          tec: ["Vue", "Element-UI"]
+          id: 2,
+          title: "基于React和Express的多人博客系统",
+          detail: "多人博客系统，包含注册、登录、修改个人信息、发帖、评论、简易搜索等功能。<br/>线上地址<a href='http://120.26.75.6:5000' target='_blank'>http://120.26.75.6:5000</a>",
+          tec: ["React", "Ant Design", "Redux", "Express", "MongoDB"]
         },
         {
-          id: 2,
+          id: 3,
+          title: "微信小程序合拼精鹰",
+          detail: "校内拼单、拼车、拼团小程序。可发布拼团信息，订约组队成功、失败、成员退出或加入等消息；拼团信息可收藏、评论；群主可请出成员、完成组队或解散队伍。点击用户头像可与对方在小程序内部私聊。<br/>演示视频<a href='https://legend-wang.oss-cn-hangzhou.aliyuncs.com/WX/video.mp4' target='_blank'>https://legend-wang.oss-cn-hangzhou.aliyuncs.com/WX/video.mp4</a>",
+          tec: ["微信小程序云开发"]
+        },
+        {
+          id: 4,
           title: "仿手机端Boss直聘网站",
           detail: "仿Boss直聘手机官网，做了三个页面，包括主页、列表页、详情页。<br/>详见<a href='https://github.com/Legend-Wangyunfeng/boss_zhipin' target='_blank'>https://github.com/Legend-Wangyunfeng/boss_zhipin</a>",
           tec: ["Vue", "Nuxt.js"]
         },
         {
-          id: 3,
-          title: "医学图像分割",
-          detail: "利用人体髋关节的CT扫描图像，认为标记背景、左腿、右腿、骨盆四部分。基于全卷积网络U-net，训练出一个可以 分割这四部分的模型，为人造髋关节手术提供便利条件。",
-          tec: ["Tensorflow", "Keras", "TensorRT"]
-        },
-        {
-          id: 4,
+          id: 5,
           title: "基于用户通信数据的重要位置识别",
           detail: "根据运营商端用户通信数据，提取用户在各个基站上的行为特征，用非监督和监督学习方法对用户重要位置进行预测，并对城市功能进行 推断。",
           tec: ["聚类", "随机森林"]
         },
         {
-          id: 5,
+          id: 6,
           title: "基于OpenCV 的疲劳驾驶检测系统",
           detail: "利用摄像头实时获取图像信息，捕捉司机眼部区域并计算眼部闭合度，当小于阈值时给予警报提醒。(获得浙江大学本科 生科研成果评选三等奖)",
           tec: ["OpenCV", "dlib"]
@@ -390,6 +392,9 @@ export default {
   }
   #project li .desc {
     margin: 5px 0;
+  }
+  #project li div {
+    color: #888;
   }
   #project a {
     text-decoration: none;
